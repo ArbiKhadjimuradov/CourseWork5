@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "coursework5"
+version = "0.1.0"
+description = ""
+authors = ["Mihouk <arbi_14@mail.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.1.6"
+djangorestframework = "^3.15.2"
+djangorestframework-simplejwt = "^5.4.0"
+django-filter = "^25.1"
+celery = "^5.4.0"
+drf-yasg = "^1.21.8"
+redis = "^5.2.1"
+django-celery-beat = "^2.7.0"
+pybloom-live = "^4.0.0"
+coverage = "^7.6.12"
+black = "^25.1.0"
+pillow = "^11.1.0"
+ipython = "^8.32.0"
+flake8 = "^7.1.2"
+django-cors-headers = "^4.7.0"
+psycopg2-binary = "^2.9.10"
+requests = "^2.32.3"
+python-dotenv = "^1.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
