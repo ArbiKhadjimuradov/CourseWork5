@@ -5,7 +5,8 @@ from datetime import timedelta
 
 class Habit(models.Model):
     """Модель Привычка."""
-    habit_tracker = models.CharField(
+
+    habit = models.CharField(
         max_length=250,
         verbose_name="Название привычки.",
         help_text="Укажите название привычки.",
@@ -87,4 +88,4 @@ class Habit(models.Model):
         verbose_name_plural = "Привычки"
 
     def __str__(self):
-        return self.habit_tracker
+        return self.habit

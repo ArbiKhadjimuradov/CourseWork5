@@ -1,12 +1,18 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.generics import ListAPIView
 from habit_tracker.models import Habit
-from habit_tracker.serializers import HabitSerializer, HabitpublicitySerializer, UserHabitSerializer
+from habit_tracker.serializers import (
+    HabitSerializer,
+    HabitpublicitySerializer,
+    UserHabitSerializer,
+)
 from habit_tracker.paginations import CustomPagination
+from users.permissions import IsOwner
 
 
 class HabitViewSet(ModelViewSet):
     """Вьюсет для модели Привычка."""
+
     queryset = Habit.objects.all()
     serializer_class = HabitSerializer
     pagination_class = CustomPagination
@@ -32,6 +38,7 @@ def get_permissions(self):
 
 class HabitpublicityListAPIView(ListAPIView):
     """Эндпоинт для списка публичных привычек."""
+
     serializer_class = HabitpublicitySerializer
     pagination_class = CustomPagination
 
@@ -42,6 +49,7 @@ class HabitpublicityListAPIView(ListAPIView):
 
 class UserhabitListAPIView(ListAPIView):
     """Эндпоинт для списка привычек текущего пользователя."""
+
     serializer_class = UserHabitSerializer
     pagination_class = CustomPagination
 

@@ -1,9 +1,13 @@
 from django.urls import path
 from rest_framework.routers import SimpleRouter
-from habit_tracker.views import HabitViewSet, UserhabitListAPIView, HabitpublicityListAPIView
-from habit_tracker.apps import HabitConfig
+from habit_tracker.views import (
+    HabitViewSet,
+    UserhabitListAPIView,
+    HabitpublicityListAPIView,
+)
+from habit_tracker.apps import HabitTrackerConfig
 
-app_name = HabitConfig.name
+app_name = HabitTrackerConfig.name
 
 router = SimpleRouter()
 router.register("", HabitViewSet)

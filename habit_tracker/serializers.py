@@ -1,9 +1,13 @@
 from rest_framework.serializers import ModelSerializer, SerializerMethodField
 from rest_framework import serializers
 from habit_tracker.models import Habit
-from datetime import timedelta
-from habit_tracker.validators import (WeeklyHabitValidator,
-                                      ValidatorTime, HabitValidator, PleasantHabitValidator, RelatedHabitValidator)
+from habit_tracker.validators import (
+    WeeklyHabitValidator,
+    ValidatorTime,
+    HabitValidator,
+    PleasantHabitValidator,
+    RelatedHabitValidator,
+)
 
 
 class HabitSerializer(serializers.ModelSerializer):
@@ -13,7 +17,6 @@ class HabitSerializer(serializers.ModelSerializer):
         HabitValidator(),
         PleasantHabitValidator(),
         RelatedHabitValidator(),
-
     ]
 
     class Meta:
@@ -30,9 +33,12 @@ class HabitpublicitySerializer(ModelSerializer):
 
     def get_habitpublicity(self, obj):
         """Метод фильтрует привычки пользователя по статусу публикации."""
-        user = self.context['request'].user
+        user = self.context["request"].user
 
-        return [habit.habit for habit in Habit.objects.filter(owner=user, publicity="Опубликована")]
+        return [
+            habit.habit
+            for habit in Habit.objects.filter(owner=user, publicity="Опубликована")
+        ]
 
 
 class UserHabitSerializer(ModelSerializer):
@@ -45,4 +51,4 @@ class UserHabitSerializer(ModelSerializer):
 
     class Meta:
         model = Habit
-        fields = "__all__"
+        fields = ["id", "email", "tg_chat_id"]
